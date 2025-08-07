@@ -1,0 +1,113 @@
+.properties-panel {
+  padding: 16px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.properties-panel h3 {
+  margin: 0 0 16px 0;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.properties-panel h4 {
+  margin: 16px 0 8px 0;
+  font-size: 14px;
+  color: #aaaaaa;
+  border-bottom: 1px solid #404040;
+  padding-bottom: 4px;
+}
+
+.no-selection {
+  color: #888888;
+  font-style: italic;
+  font-size: 14px;
+}
+
+.node-info {
+  background: #3d3d3d;
+  padding: 12px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.node-title {
+  font-weight: 600;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.node-kind {
+  font-size: 12px;
+  color: #aaaaaa;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.param-group {
+  margin-bottom: 12px;
+}
+
+.param-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #cccccc;
+  margin-bottom: 4px;
+}
+
+.param-group input[type="text"],
+.param-group input[type="number"],
+.param-group input[type="color"],
+.param-group select,
+.param-group textarea {
+  width: 100%;
+  padding: 6px 8px;
+  background: #3d3d3d;
+  border: 1px solid #555555;
+  border-radius: 3px;
+  color: #ffffff;
+  font-size: 12px;
+  resize: vertical;
+}
+
+.param-group input[type="color"] {
+  height: 32px;
+  padding: 2px;
+}
+
+.param-group input:focus,
+.param-group select:focus,
+.param-group textarea:focus {
+  outline: none;
+  border-color: #2196F3;
+}
+
+.vector-input {
+  display: grid;
+  grid-template-columns: 20px 1fr 20px 1fr 20px 1fr;
+  gap: 6px;
+  align-items: center;
+}
+
+.vector-input label {
+  font-size: 11px;
+  color: #aaaaaa;
+}
+
+.vector-input input {
+  padding: 4px 6px;
+  background: #3d3d3d;
+  border: 1px solid #555555;
+  border-radius: 3px;
+  color: #ffffff;
+  font-size: 11px;
+}
+
+.connections-section .connection-info {
+  font-size: 12px;
+  color: #cccccc;
+  background: #3d3d3d;
+  padding: 8px;
+  border-radius: 3px;
+}
