@@ -3,20 +3,23 @@
   height: 100vh;
   margin: 0;
   padding: 0;
+  background: #0d1117;
 }
 
 .app {
   display: flex;
   width: 100%;
   height: 100vh;
-  background-color: #1e1e1e;
+  background: radial-gradient(ellipse at center, #161b22 0%, #0d1117 70%);
   color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
 }
 
 .sidebar {
-  width: 250px;
-  background-color: #2d2d2d;
-  border-right: 1px solid #404040;
+  width: 280px;
+  background: rgba(22, 27, 34, 0.8);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
   overflow-y: auto;
 }
 
@@ -27,17 +30,84 @@
 }
 
 .node-editor {
-  height: 50%;
-  border-bottom: 1px solid #404040;
+  height: 100%;
+  background: transparent;
+  position: relative;
+}
+
+.right-panel {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 400px;
+  height: calc(100% - 32px);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 10;
 }
 
 .scene-canvas {
-  height: 50%;
+  height: 60%;
+  background: rgba(13, 17, 23, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
 }
 
 .properties {
-  width: 300px;
-  background-color: #2d2d2d;
-  border-left: 1px solid #404040;
+  height: calc(40% - 16px);
+  background: rgba(13, 17, 23, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
   overflow-y: auto;
+}
+
+/* Custom React Flow styling */
+.react-flow {
+  background: transparent !important;
+}
+
+.react-flow__background {
+  background: radial-gradient(ellipse at center, rgba(22, 27, 34, 0.5) 0%, rgba(13, 17, 23, 0.8) 70%) !important;
+}
+
+.react-flow__edge {
+  stroke: #e91e63 !important;
+  stroke-width: 2px !important;
+}
+
+.react-flow__edge.animated {
+  stroke-dasharray: 5 5;
+  animation: dash 1s linear infinite;
+}
+
+.react-flow__edge:hover {
+  stroke: #f50057 !important;
+  stroke-width: 3px !important;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -10;
+  }
+}
+
+.react-flow__controls {
+  background: rgba(22, 27, 34, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.react-flow__controls-button {
+  background: transparent !important;
+  border: none !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.react-flow__controls-button:hover {
+  background: rgba(233, 30, 99, 0.1) !important;
+  color: #e91e63 !important;
 }

@@ -11,15 +11,7 @@ const AudioFileNode = ({ node }: AudioFileNodeProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const fileInputRef = useRef<HTMLInputElement>(null);
   const { file, volume = 1.0 } = node.params;
-
-  useEffect(() => {
-    // Load audio file if provided
-    if (file && file instanceof File) {
-      loadAudioFile(file);
-    }
-  }, [file]);
 
   const loadAudioFile = async (audioFile: File) => {
     try {
@@ -36,24 +28,12 @@ const AudioFileNode = ({ node }: AudioFileNodeProps) => {
     }
   };
 
-  const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const selectedFile = event.target.files?.[0];
-    if (selectedFile) {
-      // We would normally update the node params here via the store
-      // For now, directly load the file
-      loadAudioFile(selectedFile);
+  useEffect(() => {
+    // Load audio file if provided
+    if (file && file instanceof File) {
+      loadAudioFile(file);
     }
-  };
-
-  const togglePlayback = () => {
-    if (isPlaying) {
-      audioManager.pauseAudio(node.id);
-      setIsPlaying(false);
-    } else {
-      audioManager.playAudio(node.id);
-      setIsPlaying(true);
-    }
-  };
+  }, [file]);
 
   // Update volume if it changes
   useFrame(() => {

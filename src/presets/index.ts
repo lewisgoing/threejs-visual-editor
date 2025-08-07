@@ -165,5 +165,51 @@ export const presets: Preset[] = [
       { id: "audio-reactive-output", source: "audio-reactive-2", target: "output-1" },
       { id: "audio-file-output", source: "audio-file-1", target: "output-1" }
     ]
+  },
+  {
+    name: "ASCII Art Effect",
+    description: "Convert 3D scene to retro ASCII art",
+    nodes: [
+      {
+        id: "sphere-ascii",
+        kind: "source",
+        type: "SphereNode",
+        params: {
+          position: { x: 0, y: 0, z: 0 },
+          scale: 1.2,
+          color: "#ffffff"
+        },
+        inputs: [],
+        position: { x: 100, y: 150 }
+      },
+      {
+        id: "ascii-effect-1",
+        kind: "effect",
+        type: "AsciiEffectNode",
+        params: {
+          backgroundColor: "#000000",
+          color: "#00ff00",
+          characters: " .:-=+*#%@",
+          fontSize: 12,
+          enabled: true
+        },
+        inputs: ["sphere-ascii"],
+        position: { x: 350, y: 150 }
+      },
+      {
+        id: "output-ascii",
+        kind: "output",
+        type: "OutputNode",
+        params: {
+          cameraPosition: { x: 0, y: 0, z: 4 }
+        },
+        inputs: ["ascii-effect-1"],
+        position: { x: 600, y: 150 }
+      }
+    ],
+    edges: [
+      { id: "sphere-ascii-effect", source: "sphere-ascii", target: "ascii-effect-1" },
+      { id: "ascii-output", source: "ascii-effect-1", target: "output-ascii" }
+    ]
   }
 ];

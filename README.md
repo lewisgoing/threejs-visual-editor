@@ -17,12 +17,14 @@ A browser-based visual programming environment for 3D graphics and audio-reactiv
 - **Sphere Node**: Creates a 3D sphere with customizable position, scale, and color
 - **Image Plane Node**: Creates a textured plane from an image URL
 - **GLB Model Node**: Load 3D models in GLB/GLTF format
+- **Audio File Node**: Load audio files (.mp3, .wav, .ogg) for visualization with playback controls
 
 #### Effect Nodes (Modify Objects)
 - **Audio Reactive Node**: Makes objects respond to audio with configurable:
   - Target property (scale, rotation, color)
   - Sensitivity level
-  - Requires microphone permission for live audio
+  - Audio source selection (microphone or audio file node)
+  - Microphone access or connect to Audio File Node for input
 - **Shader Effect Node**: Apply custom GLSL shaders with:
   - Custom vertex and fragment shaders
   - Configurable uniforms
@@ -67,11 +69,21 @@ bun run build
 
 ### Audio Reactivity
 
+**Using Microphone:**
 1. Add an Audio Reactive Node
 2. Connect a source node (sphere, image plane, etc.) to its input
 3. Connect the Audio Reactive Node to the Output Node
 4. Grant microphone permission when prompted
-5. The object will now respond to audio input
+5. The object will now respond to live audio input
+
+**Using Audio Files:**
+1. Add an Audio File Node
+2. Add an Audio Reactive Node
+3. Connect the source node to the Audio Reactive Node
+4. In the Audio Reactive Node properties, set "Audio Source Id" to the Audio File Node's ID
+5. Connect the Audio Reactive Node to the Output Node
+6. Upload an audio file via the Audio File Node's properties
+7. The object will now respond to the loaded audio file
 
 ### Custom Shaders
 
@@ -84,8 +96,9 @@ bun run build
 ### Presets
 
 Use the preset system to quickly load example scenes:
-- **Audio Reactive Sphere**: A sphere that pulses with audio
+- **Audio Reactive Sphere**: A sphere that pulses with microphone audio
 - **Shader Sphere**: A sphere with animated shader effects
+- **Audio File Visualizer**: Load an audio file and visualize with reactive sphere
 - **Save Current**: Export your current node graph as JSON
 
 ### Navigation

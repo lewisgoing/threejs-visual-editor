@@ -7,6 +7,7 @@ import GLBModelNode from './nodes/GLBModelNode';
 import AudioFileNode from './nodes/AudioFileNode';
 import AudioReactiveNode from './nodes/AudioReactiveNode';
 import ShaderEffectNode from './nodes/ShaderEffectNode';
+import AsciiEffectNode from './nodes/AsciiEffectNode';
 
 const SceneGraph = () => {
   const { nodes, getNode } = useGraphStore();
@@ -39,6 +40,8 @@ const SceneGraph = () => {
         return <AudioReactiveNode key={node.id} node={node} targetRefs={nodeRefs.current} />;
       case 'ShaderEffectNode':
         return <ShaderEffectNode key={node.id} node={node} />;
+      case 'AsciiEffectNode':
+        return <AsciiEffectNode key={node.id} node={node} />;
       default:
         return null;
     }

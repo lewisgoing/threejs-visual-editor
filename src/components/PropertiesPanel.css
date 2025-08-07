@@ -1,59 +1,75 @@
 .properties-panel {
-  padding: 16px;
+  padding: 20px;
   height: 100%;
   overflow-y: auto;
-}
-
-.properties-panel h3 {
-  margin: 0 0 16px 0;
-  font-size: 16px;
   color: #ffffff;
 }
 
+.properties-panel h3 {
+  margin: 0 0 20px 0;
+  font-size: 18px;
+  color: #ffffff;
+  font-weight: 600;
+  background: linear-gradient(45deg, #e91e63, #9c27b0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 .properties-panel h4 {
-  margin: 16px 0 8px 0;
+  margin: 20px 0 12px 0;
   font-size: 14px;
-  color: #aaaaaa;
-  border-bottom: 1px solid #404040;
-  padding-bottom: 4px;
+  color: rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 8px;
+  font-weight: 500;
 }
 
 .no-selection {
-  color: #888888;
+  color: rgba(255, 255, 255, 0.6);
   font-style: italic;
   font-size: 14px;
+  text-align: center;
+  padding: 40px 20px;
 }
 
 .node-info {
-  background: #3d3d3d;
-  padding: 12px;
-  border-radius: 4px;
-  margin-bottom: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
 }
 
 .node-title {
   font-weight: 600;
   font-size: 16px;
   color: #ffffff;
+  margin-bottom: 4px;
 }
 
 .node-kind {
   font-size: 12px;
-  color: #aaaaaa;
+  color: rgba(233, 30, 99, 0.8);
   text-transform: uppercase;
-  margin-top: 4px;
+  font-weight: 500;
+  background: rgba(233, 30, 99, 0.1);
+  padding: 2px 8px;
+  border-radius: 6px;
+  display: inline-block;
 }
 
 .param-group {
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .param-label {
   display: block;
-  font-size: 12px;
-  font-weight: 600;
-  color: #cccccc;
-  margin-bottom: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 6px;
 }
 
 .param-group input[type="text"],
@@ -62,52 +78,67 @@
 .param-group select,
 .param-group textarea {
   width: 100%;
-  padding: 6px 8px;
-  background: #3d3d3d;
-  border: 1px solid #555555;
-  border-radius: 3px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
   color: #ffffff;
-  font-size: 12px;
+  font-size: 13px;
   resize: vertical;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
 }
 
 .param-group input[type="color"] {
-  height: 32px;
-  padding: 2px;
+  height: 40px;
+  padding: 4px;
 }
 
 .param-group input:focus,
 .param-group select:focus,
 .param-group textarea:focus {
   outline: none;
-  border-color: #2196F3;
+  border-color: #e91e63;
+  background: rgba(233, 30, 99, 0.1);
+  box-shadow: 0 0 0 2px rgba(233, 30, 99, 0.2);
 }
 
 .vector-input {
   display: grid;
   grid-template-columns: 20px 1fr 20px 1fr 20px 1fr;
-  gap: 6px;
+  gap: 8px;
   align-items: center;
 }
 
 .vector-input label {
-  font-size: 11px;
-  color: #aaaaaa;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
 }
 
 .vector-input input {
-  padding: 4px 6px;
-  background: #3d3d3d;
-  border: 1px solid #555555;
-  border-radius: 3px;
+  padding: 6px 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
   color: #ffffff;
-  font-size: 11px;
+  font-size: 12px;
+  transition: all 0.2s ease;
+}
+
+.vector-input input:focus {
+  outline: none;
+  border-color: #e91e63;
+  background: rgba(233, 30, 99, 0.1);
+  box-shadow: 0 0 0 1px rgba(233, 30, 99, 0.2);
 }
 
 .connections-section .connection-info {
-  font-size: 12px;
-  color: #cccccc;
-  background: #3d3d3d;
-  padding: 8px;
-  border-radius: 3px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
 }

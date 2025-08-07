@@ -1,8 +1,8 @@
 import { useCallback, useMemo } from 'react';
 import {
   ReactFlow,
-  Background,
   Controls,
+  Background,
   useNodesState,
   useEdgesState,
   type Connection,
@@ -17,7 +17,7 @@ const nodeTypes = {
 };
 
 const NodeEditor = () => {
-  const { nodes: storeNodes, edges: storeEdges, addEdge: addStoreEdge, setSelectedNode } = useGraphStore();
+  const { nodes: storeNodes, edges: storeEdges, addEdge: addStoreEdge, removeEdge, setSelectedNode } = useGraphStore();
   
   // Convert store nodes to React Flow format
   const reactFlowNodes = useMemo(() => 
@@ -70,6 +70,12 @@ const NodeEditor = () => {
     setSelectedNode(node.id);
   }, [setSelectedNode]);
 
+  const onEdgesDelete = useCallback((edgesToDelete: any[]) => {
+    edgesToDelete.forEach(edge => {
+      removeEdge(edge.id);
+    });
+  }, [removeEdge]);
+
   return (
     <div style={{ width: '100%', height: '100%' }}>
       <ReactFlow
@@ -79,10 +85,11 @@ const NodeEditor = () => {
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
         onNodeClick={onNodeClick}
+        onEdgesDelete={onEdgesDelete}
         nodeTypes={nodeTypes}
         fitView
-        snapToGrid
-        snapGrid={[15, 15]}
+        deleteKeyCode="Delete"
+        multiSelectionKeyCode="Shift"
       >
         <Background />
         <Controls />

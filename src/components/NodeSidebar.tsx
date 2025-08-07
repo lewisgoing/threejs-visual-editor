@@ -78,6 +78,19 @@ const nodeTypes: NodeType[] = [
     },
     description: 'Apply custom GLSL shaders'
   },
+  {
+    type: 'AsciiEffectNode',
+    kind: 'effect',
+    label: 'ASCII Effect',
+    defaultParams: {
+      backgroundColor: '#000000',
+      color: '#ffffff',
+      characters: ' .:-=+*#%@',
+      fontSize: 15,
+      enabled: true
+    },
+    description: 'Convert 3D scene to ASCII art'
+  },
 ];
 
 const NodeSidebar = () => {

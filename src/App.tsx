@@ -18,13 +18,15 @@ function App() {
             <NodeEditor />
           </div>
           
-          <div className="scene-canvas">
-            <SceneCanvas />
+          <div className="right-panel">
+            <div className="scene-canvas">
+              <SceneCanvas />
+            </div>
+            
+            <div className="properties">
+              <PropertiesPanel />
+            </div>
           </div>
-        </div>
-        
-        <div className="properties">
-          <PropertiesPanel />
         </div>
       </ReactFlowProvider>
     </div>
